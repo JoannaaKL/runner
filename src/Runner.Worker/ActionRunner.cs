@@ -16,9 +16,12 @@ namespace GitHub.Runner.Worker
 {
     public enum ActionRunStage
     {
-        Pre,
+          
+          Pre,
         Main,
         Post,
+        
+        
     }
 
     [ServiceLocator(Default = typeof(ActionRunner))]
