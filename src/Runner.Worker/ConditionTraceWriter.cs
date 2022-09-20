@@ -16,7 +16,8 @@ namespace GitHub.Runner.Worker
 
         public ConditionTraceWriter(Tracing trace, IExecutionContext executionContext)
         {
-             ArgUtil.NotNull(trace, nameof(trace));
+            ArgUtil.NotNull(trace, nameof(trace));
+            Console.Write("Hello World,");
             _trace = trace;
             _executionContext = executionContext;
         }
