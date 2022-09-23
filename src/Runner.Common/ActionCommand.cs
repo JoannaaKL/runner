@@ -51,7 +51,7 @@ namespace GitHub.Runner.Common
         public static bool TryParseV2(string message, HashSet<string> registeredCommands, out ActionCommand command)
         {
             command = null;
-            if (string.IsNullOrEmpty(message))
+            if(string.IsNullOrEmpty(message))
             {
                 return false;
             }
