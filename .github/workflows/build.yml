@@ -58,6 +58,24 @@ jobs:
         ${{ matrix.devScript }} layout Release ${{ matrix.runtime }}
       working-directory: src
 
+    # Check if code was formatted 
+    - name: Check if C# code was formatted 
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Run linters
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: ${{ github.base_ref }}
+          DISABLE_ERRORS: true
+          EDITORCONFIG_FILE_NAME: .editorconfig
+          LINTER_RULES_PATH: /src/
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_CSHARP: true
+
     # Check runtime/externals hash
     - name: Compute/Compare runtime and externals Hash
       shell: bash
